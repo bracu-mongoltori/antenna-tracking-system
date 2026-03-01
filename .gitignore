@@ -1,0 +1,7 @@
+# ROS 2 / colcon workspace
+antenna_ws/build/
+antenna_ws/install/
+antenna_ws/log/
+
+.vscode/
+.idea/
