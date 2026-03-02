@@ -1,7 +1,104 @@
-# ROS 2 / colcon workspace
+# =========================
+# ROS 2 / Colcon Workspace
+# =========================
 antenna_ws/build/
 antenna_ws/install/
 antenna_ws/log/
 
+build/
+install/
+log/
+
+# ROS generated products
+msg_gen/
+srv_gen/
+_*.py
+_*.pyc
+*.bag
+
+# =========================
+# IDE / Editor Settings
+# =========================
+
+# VS Code
 .vscode/
+
+# JetBrains / IntelliJ / CLion
 .idea/
+cmake-build-debug/
+
+# QtCreator
+*.includes
+*.creator
+*.creator.user
+*.config
+*.files
+
+# Geany
+*.geany
+
+# Eclipse / Zend
+*.buildpath
+*.settings/
+*.project
+*.pydevproject
+
+# Xcode
+*.build/
+*.xcuserdatad/
+*.pbxuser
+
+# macOS
+.DS_Store
+
+# =========================
+# Build Directories
+# =========================
+**/bin/
+**/Build/
+**/gen/
+**/html_docs/
+
+CMakeCache.txt
+CMakeFiles/
+
+# =========================
+# Compiled Objects
+# =========================
+*.d
+*.o
+*.obj
+*.slo
+*.lo
+*.gch
+*.pch
+*.mod
+*.smod
+
+# =========================
+# Libraries
+# =========================
+*.so
+*.dylib
+*.dll
+*.lai
+*.la
+*.a
+*.lib
+
+# =========================
+# Executables
+# =========================
+*.exe
+*.out
+*.app
+*.elf
+*.bin
+*.hex
+*.map
+*.disasm
+
+# =========================
+# Misc
+# =========================
+*.log
