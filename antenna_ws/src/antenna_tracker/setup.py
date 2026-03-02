@@ -24,7 +24,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'antenna_tracker = antenna_tracker.antenna_tracker:main'
+            'antenna_tracker = antenna_tracker.antenna_tracker:main',
+            'rssi = antenna_tracker.rssi:main'
         ],
     },
 )

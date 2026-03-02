@@ -7,7 +7,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Login
-login_url = "https://192.168.1.5/api/auth"
+login_url = "https://192.168.1.8/api/auth"
 
 login_headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:143.0) Gecko/20100101 Firefox/143.0', 
 'Accept' : 'application/json, text/javascript, */*; q=0.01',
@@ -36,7 +36,7 @@ print(cred)
 
 # Data
 
-data_url = "https://192.168.1.5/signal.cgi"
+data_url = "https://192.168.1.8/signal.cgi"
 
 data_headers = {'User-Agent' : 'Mozilla/5.0 (X11; Linux x86_64; rv:143.0) Gecko/20100101 Firefox/143.0',
 'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',

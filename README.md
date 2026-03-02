@@ -30,3 +30,5 @@ sudo usermod -a -G uucp $USER
 sudo usermod -a -G dialout $USER
 
 ```
+
+In case if packages dont compile, do `colcon build` till it gets fixed ;/
