@@ -20,3 +20,13 @@ ros2 launch ublox_gps ublox_gps_node_zedf9p-launch.py
 or
 ros2 launch ublox_gps ublox_gps_node-launch.py
 ```
+
+# For getting USB permission issues
+```
+# For Arch based systems
+sudo usermod -a -G uucp $USER
+
+# For ubuntu based systems
+sudo usermod -a -G dialout $USER
+
+```
