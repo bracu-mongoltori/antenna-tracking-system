@@ -17,4 +17,6 @@ ros2 launch witmotion_ros wt905_launch.py
 # For running z9p gps
 ```
 ros2 launch ublox_gps ublox_gps_node_zedf9p-launch.py
+or
+ros2 launch ublox_gps ublox_gps_node-launch.py
 ```
