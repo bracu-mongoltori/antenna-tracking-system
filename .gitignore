@@ -4,6 +4,7 @@
 antenna_ws/build/
 antenna_ws/install/
 antenna_ws/log/
+**/venv/
 
 build/
 install/
