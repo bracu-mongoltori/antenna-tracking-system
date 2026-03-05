@@ -17,7 +17,7 @@ class SignalNode(Node):
         super().__init__('signal_node')
 
         self.publisher_ = self.create_publisher(Signal, 'wifi_signal', 10)
-        self.timer = self.create_timer(1.0, self.get_signal)
+        self.timer = self.create_timer(0.5, self.get_signal)
 
         self.login_url = "https://192.168.1.8/api/auth"
         self.data_url = "https://192.168.1.8/signal.cgi"
