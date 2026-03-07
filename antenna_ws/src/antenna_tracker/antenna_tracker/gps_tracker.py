@@ -1,3 +1,4 @@
+import serial
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import NavSatFix
@@ -19,7 +20,14 @@ class AntennaTracker(Node):
 
         self.yaw = None
 
-        self.serial = ser = serial.Serial(port='/dev/ttyUSB0', baudrate=115200, timeout=1)
+        self.cmd = None
+        self.last_command = None
+
+        self.angle_tolerance = 2
+
+        self.serial = serial.Serial(port='/dev/ttyUSB0', baudrate=115200, timeout=1)
+
+        self.create_timer(0.1, self.compute_tracking)
 
         # antenna GPS
         self.create_subscription(
@@ -77,7 +85,6 @@ class AntennaTracker(Node):
     # -------------------------
     def yaw_callback(self, msg: Float64):
         self.yaw = msg.data
-        self.compute_tracking()
 
     # -------------------------
     # Bearing calculation
@@ -126,12 +133,26 @@ class AntennaTracker(Node):
             f"Rotate: {rotation:.2f}°"
         )
 
-        if abs(rotation) < 2:  # tolerance
-            self.stop()
+
+        if abs(rotation) < self.angle_tolerance:
+            self.cmd = "STOP"
         elif rotation > 0:
-            self.move_right()
+            self.cmd = "RIGHT"
         else:
-            self.move_left()
+            self.cmd = "LEFT"
+
+        if self.cmd != self.last_command:
+            if self.cmd == "LEFT":
+                self.move_left()
+
+            elif self.cmd == "RIGHT":
+                self.move_right()
+
+            elif self.cmd == "STOP":
+                self.stop()
+
+            self.last_command = self.cmd
+
 
 
 def main(args=None):

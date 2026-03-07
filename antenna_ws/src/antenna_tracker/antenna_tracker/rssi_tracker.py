@@ -21,7 +21,7 @@ class RssiMover(Node):
         self.target_rssi = -40  # stop moving when RSSI reaches this
         self.last_rssi = None    # store previous RSSI
         self.moving_left = True  # start by moving left
-        self.serial = ser = serial.Serial(port='/dev/ttyUSB0', baudrate=115200, timeout=1)
+        self.serial = serial.Serial(port='/dev/ttyUSB0', baudrate=115200, timeout=1)
 
     # Function to "move left"
     def move_left(self):
