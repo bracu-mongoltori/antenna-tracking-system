@@ -19,6 +19,8 @@ class AntennaTracker(Node):
 
         self.yaw = None
 
+        self.serial = ser = serial.Serial(port='/dev/ttyUSB0', baudrate=115200, timeout=1)
+
         # antenna GPS
         self.create_subscription(
             NavSatFix,
@@ -41,6 +43,21 @@ class AntennaTracker(Node):
             10)
 
     # -------------------------
+    # Antenna Motor Control
+    # -------------------------
+    def move_left(self):
+        print("Move LEFT")
+        self.serial.write(b'L')
+
+    def move_right(self):
+        print("Move RIGHT")
+        self.serial.write(b'R')
+
+    def stop(self):
+        print("STOP")
+        self.serial.write(b'S')
+
+    # -------------------------
     # Rover GPS (target)
     # -------------------------
     def rover_gps_callback(self, msg: SbgGpsPos):
@@ -54,13 +71,13 @@ class AntennaTracker(Node):
         self.my_lat = msg.latitude
         self.my_lon = msg.longitude
 
-        self.compute_tracking()
 
     # -------------------------
     # Yaw from IMU
     # -------------------------
     def yaw_callback(self, msg: Float64):
         self.yaw = msg.data
+        self.compute_tracking()
 
     # -------------------------
     # Bearing calculation
@@ -108,6 +125,13 @@ class AntennaTracker(Node):
             f"Yaw: {self.yaw:.2f}° | "
             f"Rotate: {rotation:.2f}°"
         )
+
+        if abs(rotation) < 2:  # tolerance
+            self.stop()
+        elif rotation > 0:
+            self.move_right()
+        else:
+            self.move_left()
 
 
 def main(args=None):
