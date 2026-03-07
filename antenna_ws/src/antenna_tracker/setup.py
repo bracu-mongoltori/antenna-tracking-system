@@ -26,6 +26,7 @@ setup(
         'console_scripts': [
             'rssi_tracker = antenna_tracker.rssi_tracker:main',
             'gps_tracker = antenna_tracker.gps_tracker:main',
+            'dummy = antenna_tracker.dummy:main',
             'rssi = antenna_tracker.rssi:main'
         ],
     },
