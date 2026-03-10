@@ -46,6 +46,7 @@ def generate_launch_description():
     params = os.path.join(config_directory, 'c94_m8p_rover.yaml')
     ublox_gps_node = launch_ros.actions.Node(package='ublox_gps',
                                              executable='ublox_gps_node',
+                                             namespace='antenna',
                                              output='both',
                                              parameters=[params])
 

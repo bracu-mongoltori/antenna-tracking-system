@@ -52,7 +52,7 @@ def generate_launch_description():
         params = yaml.safe_load(f)['ublox_gps_node']['ros__parameters']
     container = ComposableNodeContainer(
             name='ublox_gps_container',
-            namespace='',
+            namespace='antenna',
             package='rclcpp_components',
             executable='component_container',
             composable_node_descriptions=[

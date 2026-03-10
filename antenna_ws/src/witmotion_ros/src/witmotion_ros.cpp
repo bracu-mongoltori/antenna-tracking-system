@@ -274,7 +274,7 @@ ROSWitmotionSensorController::ROSWitmotionSensorController()
                            .get<bool>();
 
   if (orientation_enable) {
-    node->declare_parameter("orientation_publisher.topic_name", "orientation");
+    node->declare_parameter("orientation_publisher.topic_name", "/antenna/orientation");
     _orientation_topic = node->get_parameter("orientation_publisher.topic_name")
                              .get_parameter_value()
                              .get<std::string>();

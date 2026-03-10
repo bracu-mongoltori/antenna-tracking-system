@@ -21,13 +21,13 @@ class QuaternionToEulerNode(Node):
         super().__init__('quaternion_to_euler')
         self.subscription = self.create_subscription(
             Quaternion,
-            '/orientation',
+            '/antenna/orientation',
             self.orientation_callback,
             10
         )
-        self.yaw = self.create_publisher(Float64, "/witmotion_eular/yaw", 10)
-        self.roll = self.create_publisher(Float64, "/witmotion_eular/roll", 10)
-        self.pitch = self.create_publisher(Float64, "/witmotion_eular/pitch", 10)
+        self.yaw = self.create_publisher(Float64, "/antenna/witmotion_eular/yaw", 10)
+        self.roll = self.create_publisher(Float64, "/antenna/witmotion_eular/roll", 10)
+        self.pitch = self.create_publisher(Float64, "/antenna/witmotion_eular/pitch", 10)
 
         self.get_logger().info('Quaternion to Euler node has started.')
 

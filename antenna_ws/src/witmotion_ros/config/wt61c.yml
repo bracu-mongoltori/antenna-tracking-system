@@ -60,7 +60,7 @@ witmotion:
       addition: 0.0 # and addendum
     orientation_publisher:
       enabled: false
-      topic_name: /orientation
+      topic_name: /antenna/orientation
     gps_publisher:
       enabled: false
       navsat_fix_frame_id: world

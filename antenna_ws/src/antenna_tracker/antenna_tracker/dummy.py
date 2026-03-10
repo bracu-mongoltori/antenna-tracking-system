@@ -11,7 +11,7 @@ class DualGpsPublisher(Node):
         super().__init__('dual_gps_input_publisher')
 
         self.sbg_pub = self.create_publisher(SbgGpsPos, "/sbg/gps_pos", 10)
-        self.ublox_pub = self.create_publisher(NavSatFix, "/fix", 10)
+        self.ublox_pub = self.create_publisher(NavSatFix, "/antenna/fix", 10)
 
         self.get_logger().info("Dual GPS publisher started")
 

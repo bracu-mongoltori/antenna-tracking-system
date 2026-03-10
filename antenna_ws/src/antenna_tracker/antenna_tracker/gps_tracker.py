@@ -32,7 +32,7 @@ class AntennaTracker(Node):
         # antenna GPS
         self.create_subscription(
             NavSatFix,
-            "/fix",
+            "/antenna/fix",
             self.antenna_gps_callback,
             10)
 
@@ -43,10 +43,10 @@ class AntennaTracker(Node):
             self.rover_gps_callback,
             10)
 
-        # IMU yaw
+        # IMU yawIf you want, I can make the witmotion_ros config changes now and also update the ublox-ros2 launch to publish under /antenna/fix.
         self.create_subscription(
             Float64,
-            "/witmotion_eular/yaw",
+            "/antenna/witmotion_eular/yaw",
             self.yaw_callback,
             10)
 
